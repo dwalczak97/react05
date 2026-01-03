@@ -13,7 +13,7 @@ const {lists, loading, error} = useGetMovieList();
     <>
 
 
-    <MolieList lists={lists}/>
+    <MovieList obj={lists}/>
 {/*   
   <Routes>
         <Route path="/" element={<MovieList/>} />

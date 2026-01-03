@@ -1,12 +1,13 @@
 //  import { NavLink } from "react-router-dom";
-//  import { Routes, Route } from "react-router-dom";
-import  useGetMovieList from './components/api.jsx';
+//  import { Routes, Route } from "react-router-dom;
+
+import useFilmListContext from "../hooks/useFilmContext";
 
 
-function MovieList (lists) {
-
+function MovieList ({obj}) {
+const {lists} = useFilmListContext()
 // const imageBaseUrl = `https://image.tmdb.org/t/p/w500/`;
-//  const {lists, loading, error} = useGetMovieList();
+
 return (
 
    <ul>
