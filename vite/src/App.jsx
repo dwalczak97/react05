@@ -31,6 +31,8 @@ fetchList();
 
   return (
     <>
+    <h3>Home</h3>
+    <h3>Movie</h3>
       <ul>
    {lists.map(({id, title}) => (
     <li key={id}><p>{title}</p></li>
