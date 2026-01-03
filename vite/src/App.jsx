@@ -4,12 +4,12 @@ import './App.css'
 import axios from 'axios';
 
 function App() {
-  const [list, setList] = useState(0)
+  const [lists, setList] = useState([])
 
   useEffect(() => {
 
 
-const url = '<https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1>';
+const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
 
 const options = {
   headers: {
@@ -21,17 +21,22 @@ const options = {
 
 async function fetchList () {
   const resp = await axios.get(url, options)
-  .then(response =>
- console.log(response))
-  .catch(err => console.error(err)); 
-  return resp;
+  // return resp;
+  console.log(resp.data.results)
+  setList(resp.data.results)
+
   }
 fetchList();
-  }, [])
+  }, []);
+
   return (
     <>
-      
-   <div></div>
+      <ul>
+   {lists.map(({id, title}) => (
+    <li key={id}><p>{title}</p></li>
+   ))}
+   
+</ul>
     </>
   )
 }
