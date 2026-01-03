@@ -1,46 +1,27 @@
 import { useEffect, useState } from 'react'
-// import {fetchList}from './components/api.jsx'
+import  useGetMovieList from './components/api.jsx'
 import './App.css'
-import axios from 'axios';
+import MovieList from './components/MovieList.jsx';
+
+// import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const [lists, setList] = useState([])
+const {lists, loading, error} = useGetMovieList();
 
-  useEffect(() => {
-
-
-const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
-
-const options = {
-  headers: {
-		// Zamiast api_read_access_token wstaw własny token
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMjhkMDgwOThlZjA1YmFjOWNhZjljYmMzZmViNGMzMCIsIm5iZiI6MTc2NzQzMDg5MS4wODA5OTk5LCJzdWIiOiI2OTU4ZGFlYjIwOWQzZGY2ZDZjMzdlZWMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.dqiDtt4SSJi1TPHScrShjokSKPXDLWrBQGLfMIypJpI'
-  }
-};
-
-
-async function fetchList () {
-  const resp = await axios.get(url, options)
-  // return resp;
-  console.log(resp.data.results)
-  setList(resp.data.results)
-
-  }
-fetchList();
-  }, []);
 
   return (
     <>
-    <h3>Home</h3>
-    <h3>Movie</h3>
-      <ul>
-   {lists.map(({id, title}) => (
-    <li key={id}><p>{title}</p></li>
-   ))}
-   
-</ul>
+
+
+    <MolieList lists={lists}/>
+{/*   
+  <Routes>
+        <Route path="/" element={<MovieList/>} />
+  </Routes> */}
     </>
   )
 }
 
 export default App
+
+

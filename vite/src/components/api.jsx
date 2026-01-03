@@ -1,21 +1,45 @@
-// import {axios} from 'axios';
+ import axios from 'axios';
+import { useEffect, useState } from 'react'
 
+const useGetMovieList = () =>{
+ const [lists, setList] = useState([]);
+ const [loading, setLoading] = useState(false);
+ const [error, setError] = useState(false);
 
-// const url = '<https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1>';
+useEffect (() => {
 
-// const options = {
-//   headers: {
-// 		// Zamiast api_read_access_token wstaw własny token
-//     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMjhkMDgwOThlZjA1YmFjOWNhZjljYmMzZmViNGMzMCIsIm5iZiI6MTc2NzQzMDg5MS4wODA5OTk5LCJzdWIiOiI2OTU4ZGFlYjIwOWQzZGY2ZDZjMzdlZWMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.dqiDtt4SSJi1TPHScrShjokSKPXDLWrBQGLfMIypJpI'
-//   }
-// };
-// const fetchList = () => {
-//   const response = await axios.get(url, options)
-//   .then(response =>
-//  console.log(response))
-//   .catch(err => console.error(err)); 
-//   return response;
-// }
+const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
 
+const options = {
+  headers: {
+		// Zamiast api_read_access_token wstaw własny token
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMjhkMDgwOThlZjA1YmFjOWNhZjljYmMzZmViNGMzMCIsIm5iZiI6MTc2NzQzMDg5MS4wODA5OTk5LCJzdWIiOiI2OTU4ZGFlYjIwOWQzZGY2ZDZjMzdlZWMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.dqiDtt4SSJi1TPHScrShjokSKPXDLWrBQGLfMIypJpI'
+  }
+};
 
-// export default fetchList;
+const fetchList = async () =>{
+  try{
+    setLoading(true);
+    const resp = await axios.get(url, options)
+    console.log(resp.data.results)
+    setList(resp.data.results)
+  }
+  catch (error) {
+    setError(error);
+  }
+  finally {
+    setLoading(false);
+  }
+
+};
+fetchList();
+
+}, [] );
+
+return {
+  lists, loading, error
+};
+
+};
+
+export default useGetMovieList;
