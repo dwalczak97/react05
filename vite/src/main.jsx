@@ -6,13 +6,6 @@ import FilmProvider from './providers/Film.provider.jsx';
 
 import { BrowserRouter } from "react-router-dom";
 import MovieProvider from './providers/Movie.provider.jsx';
-// createRoot(document.getElementById('root')).render(
-//   <StrictMode>
-//     <FilmProvider>
-//     <App />
-//     </FilmProvider>
-//   </StrictMode>,
-// )
 
 
 
