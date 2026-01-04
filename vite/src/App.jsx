@@ -6,6 +6,7 @@ import Home from './pages/HomePage.jsx';
 import Movie from './pages/MoviesPage.jsx';
 import NotFound from './pages/Not found.jsx';
 import Navigation from './components/Navigation.jsx';
+import MovieDetail from './pages/MovieDetailsPage.jsx';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 <Routes>
   <Route path='/' element={<Home />}></Route>
   <Route path='/movie' element={<Movie />}></Route>
+  <Route path="/movie/:${movie_id}" element={<MovieDetail />}></Route>
   <Route path='*' element={<NotFound/>}></Route>
 </Routes>
     </>
