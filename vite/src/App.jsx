@@ -1,23 +1,23 @@
-import { useEffect, useState } from 'react'
-import  useGetMovieList from './components/api.jsx'
-import './App.css'
-import MovieList from './components/MovieList.jsx';
 
-// import { Routes, Route } from "react-router-dom";
+import './App.css'
+
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/HomePage.jsx';
+import Movie from './pages/MoviesPage.jsx';
+import NotFound from './pages/Not found.jsx';
+
 
 function App() {
-const {lists, loading, error} = useGetMovieList();
+
 
 
   return (
     <>
-
-
-    <MovieList obj={lists}/>
-{/*   
-  <Routes>
-        <Route path="/" element={<MovieList/>} />
-  </Routes> */}
+<Routes>
+  <Route path='/' element={<Home />}></Route>
+  <Route path='/movie' element={<Movie />}></Route>
+  <Route path='*' element={<NotFound/>}></Route>
+</Routes>
     </>
   )
 }
