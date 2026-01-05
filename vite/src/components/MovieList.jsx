@@ -2,7 +2,7 @@
 
 import { NavLink } from "react-router-dom";
 import useFilmListContext from "../hooks/useFilmContext";
-import useMovieDetail from "./api-detail";
+
 
 
 function MovieList () {
@@ -13,7 +13,7 @@ return (
  <nav>
     {lists.map((list) => (
  <li key={list.id} id={list.id}>
-<NavLink className="movielink" to={`/movies${list.id}`}>
+<NavLink className="movielink" to={`/movie/${list.id}`}>
     {list.title}
   </NavLink>
 

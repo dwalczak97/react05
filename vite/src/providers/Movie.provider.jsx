@@ -1,6 +1,6 @@
 
 import useGetMovie from "../components/api-detail";
-import movieContext from "../context/MovieDetailContext";
+import movieContext from "../context/MovieContext";
 
 function MovieProvider ({children}) {
  const  {movie, loading, error} = useGetMovie();

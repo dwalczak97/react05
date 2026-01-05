@@ -1,15 +1,15 @@
 import { useParams } from "react-router-dom"
 import useMovieDetail from "../hooks/useMovieDetail";
-// import useMovieDetail from "../hooks/useMovieDetail";
 
 
 const MovieDetail = () => {
   const {id} = useParams();
-   const {movie } = useMovieDetail();
+   const { movie } = useMovieDetail(id);
    console.log(id)
   return (
     <div>
-        details -  {id}
+      <p></p>
+        details - {movie} {id}
     </div>
   );
 };

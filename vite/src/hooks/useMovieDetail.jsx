@@ -1,10 +1,11 @@
 import { useContext } from "react"
-import movieContext from "../context/MovieDetailContext";
+import movieContext from "../context/MovieContext";
+
 
 
 const useMovieDetail = (id) => {
      const contextMovie = useContext(movieContext);
-    return contextMovie;
+    return contextMovie, id;
 
 };
 
