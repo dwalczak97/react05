@@ -2,7 +2,7 @@ import { useContext } from "react"
 import movieContext from "../context/MovieDetailContext";
 
 
-const useMovieDetail = () => {
+const useMovieDetail = (id) => {
      const contextMovie = useContext(movieContext);
     return contextMovie;
 

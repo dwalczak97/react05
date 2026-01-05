@@ -1,14 +1,14 @@
  import axios from 'axios';
 import { useEffect, useState } from 'react'
 
-const useGetMovie = (movie_id) => {
-    const [movie,setMovie] = useState([]);
+const useGetMovie = (id) => {
+    const [movie,setMovie] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     
 useEffect (() => {
 
-const urlTwo = `https://api.themoviedb.org/3/movie/${movie_id}`;
+const urlTwo = `https://api.themoviedb.org/3/movie/550`;
 
 const optionsTwo = {
   headers: {
@@ -17,12 +17,12 @@ const optionsTwo = {
   }
 };
 
-const fetchMovie = async () =>{
+const fetchMovie = async (id) =>{
   try{
     setLoading(true);
-    const respMovie = await axios.get(urlTwo, optionsTwo)
-    console.log(respMovie.data.results)
-    setMovie(respMovie.data.results)
+    const respMovie = await axios.get( urlTwo, optionsTwo)
+    console.log(respMovie.data)
+    setMovie(respMovie.data)
   }
   catch (error) {
     setError(error);

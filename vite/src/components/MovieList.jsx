@@ -11,10 +11,10 @@ const {lists} = useFilmListContext();
 return (
 
  <nav>
-    {lists.map(({id, title}) => (
- <li key={id} id={id}>
-<NavLink className="movielink" to={`/movies${id}`}>
-    {title}
+    {lists.map((list) => (
+ <li key={list.id} id={list.id}>
+<NavLink className="movielink" to={`/movies${list.id}`}>
+    {list.title}
   </NavLink>
 
  </li>
