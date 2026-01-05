@@ -3,9 +3,9 @@ import movieContext from "../context/MovieContext";
 
 
 
-const useMovieDetail = (id) => {
+const useMovieDetail = () => {
      const contextMovie = useContext(movieContext);
-    return contextMovie, id;
+    return contextMovie;
 
 };
 

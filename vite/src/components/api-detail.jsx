@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react'
 import fetchOneMovie from './fetchOneMovie';
 
 const useGetMovie = (id) => {
-    const [movie,setMovie] = useState(null);
+    const [movie, setMovie] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    console.log(id)
+    // console.log(id)
 
 
 // const fetchOneMovie = async () =>{
